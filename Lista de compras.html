@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 24px;
+            color: #222;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ec4899;
+            margin-bottom: 4px;
+        }
+
+        .dica {
+            text-align: center;
+            color: #666;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .formulario {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .formulario input,
+        .formulario select,
+        .formulario button {
+            padding: 8px 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .formulario button {
+            background-color: #ec4899;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .formulario button:hover {
+            background-color: #db2777;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background-color: #ec4899;
+            color: white;
+            padding: 10px;
+            font-size: 15px;
+        }
+
+        td {
+            vertical-align: top;
+            border: 1px solid #ddd;
+            padding: 8px;
+            width: 20%;
+        }
+
+        .lista-itens {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .lista-itens li {
+            cursor: pointer;
+            padding: 4px 6px;
+            border-radius: 4px;
+        }
+
+        .lista-itens li:hover {
+            text-decoration: line-through;
+            color: #ec4899;
+            background-color: #fce4ef;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lista de Compras</h1>
+    
+    <div class="formulario">
+        <input type="text" id="novoItemInput" placeholder="Nome do item">
+        <select id="categoriaSelect">
+            <option value="lista-frutas">Frutas</option>
+            <option value="lista-legumes">Legumes e Verduras</option>
+            <option value="lista-higiene">Higiene Pessoal e Limpeza</option>
+            <option value="lista-frios">Frios e Laticínios</option>
+            <option value="lista-mercearia">Mercearia</option>
+        </select>
+        <button onclick="adicionarPeloFormulario()">Adicionar</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Frutas</th>
+                <th>Legumes e Verduras</th>
+                <th>Higiene Pessoal e Limpeza</th>
+                <th>Frios e Laticínios</th>
+                <th>Mercearia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul id="lista-frutas" class="lista-itens">
+                        <li>Banana</li>
+                        <li>Maçã</li>
+                        <li>Abacaxi</li>
+                        <li>Laranja</li>
+                        <li>Goiaba</li>
+                        <li>Melão</li>
+                        <li>Mamão</li>
+                        <li>Limão</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul id="lista-legumes" class="lista-itens">
+                        <li>Alface</li>
+                        <li>Tomate</li>
+                        <li>Cenoura</li>
+                        <li>Couve</li>
+                        <li>Batata</li>
+                        <li>Beterraba</li>
+                        <li>Abobrinha</li>
+                        <li>Cebola</li>
+                        <li>Alho</li>
+                        <li>Pepino</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul id="lista-higiene" class="lista-itens">
+                        <li>Sabonete</li>
+                        <li>Shampoo</li>
+                        <li>Condicionador</li>
+                        <li>Pasta de Dente</li>
+                        <li>Papel Higiênico</li>
+                        <li>Absorvente</li>
+                        <li>Sabonete íntimo</li>
+                        <li>Bucha de tomar banho</li>
+                        <li>Creme de Cabelo</li>
+                        <li>Creme de Pele</li>
+                        <li>Desodorante</li>
+                        <li>Algodão</li>
+                        <li>Acetona</li>
+                        <li>Detergente</li>
+                        <li>Bucha de lavar louça</li>
+                        <li>Bombril</li>
+                        <li>Fósforo</li>
+                        <li>Sabão em barra</li>
+                        <li>Veja</li>
+                        <li>Ajax</li>
+                        <li>Sabão em pó</li>
+                        <li>Amaciante</li>
+                        <li>Qboa</li>
+                        <li>Saco de lixo</li>
+                        <li>Desinfetante</li>
+                        <li>Baygon</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul id="lista-frios" class="lista-itens">
+                        <li>Leite</li>
+                        <li>Manteiga</li>
+                        <li>Presunto</li>
+                        <li>Queijo</li>
+                        <li>Ovo</li>
+                        <li>Requeijão</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul id="lista-mercearia" class="lista-itens">
+                        <li>Arroz</li>
+                        <li>Feijão</li>
+                        <li>Açúcar</li>
+                        <li>Macarrão</li>
+                        <li>Polvilho</li>
+                        <li>Cuscuz</li>
+                        <li>Farinha de trigo</li>
+                        <li>Maizena</li>
+                        <li>Molho de tomate</li>
+                        <li>Creme de leite</li>
+                        <li>Leite Condensado</li>
+                        <li>Nescau</li>
+                        <li>Chocolate em pó</li>
+                        <li>Pão de forma</li>
+                        <li>Fermento</li>
+                        <li>Biscoito</li>
+                        <li>Milho</li>
+                        <li>Óleo</li>
+                        <li>Ketchup</li>
+                        <li>Maionese</li>
+                        <li>Mostarda</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function ativarExclusao(li) {
+            li.addEventListener('click', function () {
+                li.remove();
+            });
+        }
+
+        function ativarExclusaoEmTodosOsItens() {
+            document.querySelectorAll('.lista-itens li').forEach(ativarExclusao);
+        }
+
+        function adicionarPeloFormulario() {
+            const input = document.getElementById('novoItemInput');
+            const texto = input.value.trim();
+            const categoriaId = document.getElementById('categoriaSelect').value;
+
+            if (texto === '') return;
+
+            const ul = document.getElementById(categoriaId);
+            const li = document.createElement('li');
+            li.textContent = texto;
+
+            ativarExclusao(li);
+
+            ul.appendChild(li);
+            input.value = '';
+            input.focus();
+        }
+
+        document.getElementById('novoItemInput').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                adicionarPeloFormulario();
+            }
+        });
+
+        ativarExclusaoEmTodosOsItens();
+    </script>
+</body>
+</html>
